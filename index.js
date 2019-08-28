@@ -16,5 +16,3 @@ function addFormControls() {
       </li>`)
     })
 }
-
-$(addFormControls);
