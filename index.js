@@ -1,6 +1,7 @@
 function addFormControls() {
     // Add event listener to add content when form is submitted.
-    $('js-shopping-list-form').submit(event=>{
+    $('#js-shopping-list-form').submit(event=>{
+      event.preventDefault();
         const item = $('#shopping-list-entry').val();
         $('.shopping-list').append(` 
         <li>
@@ -15,4 +16,15 @@ function addFormControls() {
         </div>
       </li>`)
     })
+
+  $('ul').on('click', '.shopping-item-delete', function (event) {
+    console.log('Here in remove event listener');
+    $(this).closest('li').remove();
+  });
+  $('ul').on('click', '.shopping-item-toggle',function(event){
+    console.log('Here in toggle event listener');
+    $(this).parent().siblings('span').toggleClass('shopping-item__checked');
+  });
 }
+
+$(addFormControls);
